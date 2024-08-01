@@ -7,7 +7,8 @@
 <body>
     <h1>
         <?php
-        echo "hello world";
+            $greeting = "Hello";
+            echo "$greeting World";
         ?>
     </h1>
 </body>
