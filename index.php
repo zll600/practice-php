@@ -10,16 +10,22 @@
         </h1>
         <?php
             $todoList = [
-                "first",
-                "second",
-                "third"
+                    [
+                "name" => "1st",
+                        ],
+                [
+                "name" => "2nd",
+                    ],
+                [
+                "name" => "3rd"
+                    ]
             ];
         ?>
 
         <ul>
             <?php
                 foreach ($todoList as $todo) {
-                    echo "<li>$todo</li>";
+                    echo "<li>" . "{$todo['name']}" . "</li>";
                 }
             ?>
         </ul>
