@@ -5,18 +5,23 @@
     <title>Demo</title>
 </head>
 <body>
+        <h1>
+            todoList
+        </h1>
         <?php
-            $name = "books";
-            $read = true;
+            $todoList = [
+                "first",
+                "second",
+                "third"
+            ];
+        ?>
 
-            if ($read) {
-                $message = "message";
-            }
-        ?>
-    <h1>
-        <?php
-            echo "$message is our message";
-        ?>
-    </h1>
+        <ul>
+            <?php
+                foreach ($todoList as $todo) {
+                    echo "<li>$todo</li>";
+                }
+            ?>
+        </ul>
 </body>
 </html>
