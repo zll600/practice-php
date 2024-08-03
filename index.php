@@ -5,27 +5,38 @@
     <title>Demo</title>
 </head>
 <body>
-        <h1>
-            todoList
-        </h1>
         <?php
-            $todoList = [
-                    [
-                "name" => "1st",
-                        ],
+            $books = [
                 [
-                "name" => "2nd",
-                    ],
+                    "name" => "1st",
+                    "author" => "first",
+                ],
                 [
-                "name" => "3rd"
-                    ]
+                    "name" => "2nd",
+                    "author" => "second",
+                ],
+                [
+                    "name" => "3rd",
+                    "author" => "third",
+                ]
             ];
+
+            function filterByName($books, $author) {
+                $filteredBooks = [];
+                foreach($books as $book) {
+                    if ($book["author"] === $author) {
+                        $filteredBooks[] = $book;
+                    }
+                }
+                return $filteredBooks;
+            }
         ?>
 
         <ul>
             <?php
-                foreach ($todoList as $todo) {
-                    echo "<li>" . "{$todo['name']}" . "</li>";
+                $filteredBooks = filterByName($books, "second");
+                foreach($filteredBooks as $book) {
+                    echo "<li>" . $book["name"] . "</li>";
                 }
             ?>
         </ul>
