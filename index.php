@@ -21,20 +21,13 @@
                 ]
             ];
 
-            function filterByName($books, $author) {
-                $filteredBooks = [];
-                foreach($books as $book) {
-                    if ($book["author"] === $author) {
-                        $filteredBooks[] = $book;
-                    }
-                }
-                return $filteredBooks;
-            }
         ?>
 
         <ul>
             <?php
-                $filteredBooks = filterByName($books, "second");
+                $filteredBooks = array_filter($books, function($book) {
+                    return $book["author"] === 'third';
+                });
                 foreach($filteredBooks as $book) {
                     echo "<li>" . $book["name"] . "</li>";
                 }
