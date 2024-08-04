@@ -1,6 +1,6 @@
-<?php require 'views/partials/header.php'; ?>
-<?php require 'views/partials/nav.php'; ?>
-<?php require 'views/partials/banner.php'; ?>
+<?php require base_path('views/partials/header.php'); ?>
+<?php require base_path('views/partials/nav.php'); ?>
+<?php require base_path('views/partials/banner.php'); ?>
 
 <form method="POST">
     <div class="space-y-12">
@@ -23,4 +23,4 @@
 </form>
 
 
-<?php require 'views/partials/footer.php'; ?>
+<?php require base_path('views/partials/footer.php'); ?>

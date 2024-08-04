@@ -4,7 +4,7 @@ $routes = require('routes.php');
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-function abort($code = 404) {
+function abort($code = REsponse::NOT_FOUND) {
     http_response_code($code);
 
     require "views/{$code}.php";
