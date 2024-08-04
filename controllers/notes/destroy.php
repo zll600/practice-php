@@ -11,4 +11,7 @@ $note = $db->query("SELECT * FROM notes where id = :id", ['id' => $id])->findOrF
 
 authoirze($note['user_id'] === $currentUserId);
 
-view('notes/show.view.php', ['heading' => 'Note' , 'note' => $note]);
+$note = $db->query("DELETE FROM notes WHERE id = :id", ['id' => $id]);
+
+header('location: /notes');
+exit();
