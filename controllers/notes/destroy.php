@@ -2,8 +2,7 @@
 
 $currentUserId = 1;
 
-$config = require base_path("config.php");
-$db = new \Core\Database($config['database']);
+$db = \Core\App::resolve(\Core\Database::class);
 
 $id = $_GET['id'];
 
