@@ -13,3 +13,10 @@ $router->patch('/note', '/controllers/notes/update.php');
 
 $router->post('/notes', '/controllers/notes/store.php');
 $router->delete('/note', '/controllers/notes/destroy.php');
+
+$router->get('/register', '/controllers/registration/create.php');
+$router->post('/register', '/controllers/registration/store.php');
+
+$router->get('/login', '/controllers/registration/create.php')->only('guest');
+$router->post('/sessions', '/controllers/registration/store.php')->only('guest');
+$router->delete('/sessions', '/controllers/registration/destroy.php')->only('auth');

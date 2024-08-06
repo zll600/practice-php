@@ -3,34 +3,42 @@
 namespace Core;
 
 class Router {
-    private $routes = [];
+    private array $routes = [];
 
     private function add($uri, $method, $controller) {
         $this->routes[] = [
             'uri' => $uri,
             'method' => $method,
-            'controller' => $controller
+            'controller' => $controller,
+            'middleware' => null
         ];
+
+        return $this;
     }
 
     public function get($uri, $controller) {
-        $this->add($uri, 'GET', $controller);
+        return $this->add($uri, 'GET', $controller);
     }
 
     public function post($uri, $controller) {
-        $this->add($uri, 'POST', $controller);
+        return $this->add($uri, 'POST', $controller);
     }
 
     public function delete($uri, $controller) {
-        $this->add($uri, 'DELETE', $controller);
+        return $this->add($uri, 'DELETE', $controller);
     }
 
     public function put($uri, $controller) {
-        $this->add($uri, 'PUT', $controller);
+        return $this->add($uri, 'PUT', $controller);
     }
 
     public function patch($uri, $controller) {
-        $this->add($uri, 'PATCH', $controller);
+        return $this->add($uri, 'PATCH', $controller);
+    }
+
+    public function only($key) {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+        return $this;
     }
 
     public function route($uri, $method) {
